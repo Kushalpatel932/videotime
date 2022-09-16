@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+  
+<form action="" method="POST" id="score">
+    {% csrf_token %}
+    <div id="video_player_box">
+    {% for i in video%}
+    <p>video id: {{i.id}}</p>
+    <p>video name: {{i.video_name}}</p>
+    <video id="my_video" width="550" height="310">
+        <source src='{{ i.video.url }}' type='video/mp4'>
+    </video>
+    <div id="video_control_bar">
+        <button id="playpausebtn">play</button>
+        <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+        <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+    </div>
+    <p>point <span id="points">01</span></p>
+    {%endfor%}
+</div>
+    </form>
+{%endblock%}

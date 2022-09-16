@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block content%}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ranks</th>
+        <th scope="col">name</th>
+        <th scope="col">point</th>
+     
+      </tr>
+    </thead>
+    <tbody>
+    {%for i in ranks %}
+      
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.user_id}}</td>
+        <td>{{i.point}}</td>
+      </tr>
+    {%endfor%}
+    </tbody>
+  </table>
+  {%endblock%}
